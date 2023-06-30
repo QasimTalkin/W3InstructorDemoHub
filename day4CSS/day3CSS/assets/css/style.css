@@ -1,0 +1,118 @@
+body {
+  background-color: lightblue;
+}
+
+h1 {
+ color:red;
+}
+
+h3 {
+ color:blue;
+}
+footer {
+  color:rgb(26, 45, 45);
+  background-color: rgba(202, 172, 97, 0.895);
+  border-bottom: 10px solid #133435;
+ }
+
+#sectionOne {
+ color:rgb(174, 167, 158)
+}
+
+label {
+ color:blue
+}
+
+#para2 {
+  color:red;
+  font-size: 32px;
+
+}
+
+.input-box {
+  color:rgb(26, 45, 45);
+  background-color: rgba(202, 172, 97, 0.895);
+  border-bottom: 2px solid #133435;
+ }
+
+ #steve {
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   font-weight: 600;
+ }
+
+li {
+  display: inline;
+  padding: 30px;
+}
+
+ul {
+ background-color:#133435;
+}
+
+div p {
+  background-color:antiquewhite;
+}
+
+
+div > p{
+  color:red;
+}
+
+
+div + p {
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color:cadetblue;
+}
+
+div ~ li {
+  color:red;
+}
+
+
+
+/* sudo selectors */
+a:hover{
+ font-size: large;
+ background-color:black;
+}
+
+
+section div p:first-child{
+  font-size: x-small;
+}
+
+input:focus{
+  background-color:blue;
+}
+
+
+p::first-letter{
+  font-size: 80px;
+}
+
+
+p::before {
+  content:"😎"
+}
+
+p::after {
+  content:"😎"
+}
+
+section[id="sectionOne"] {
+  border: 5px solid black;
+}
+
+
+#box {
+ padding: 50px;
+ border: 10px dashed lightcoral;
+ background-color:rgb(206, 174, 235);
+ margin-top: 40px;
+ margin-bottom: 500px;
+ width: 500px;
+ height:400px;
+ line-height: 100px;
+ float: right;
+}
+
