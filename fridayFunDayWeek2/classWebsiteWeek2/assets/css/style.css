@@ -1,0 +1,108 @@
+* {
+  margin:0;
+  padding: 0;
+}
+
+
+body {
+  background-color: #0AA7D2;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+header {
+  padding: 10px 35px;
+}
+header h1 {
+  font-weight:700;
+  font-size: 30px;
+  margin:0;
+  color: #F0E565;
+  display: inline;
+}
+
+header a{
+  text-decoration: none;
+  color: #F0E565;
+}
+nav ul {
+  display: inline;
+}
+header nav ul li {
+display: inline;
+color: #F0E565;
+}
+
+header nav {
+  float: right;
+  margin: 10px 0;
+}
+
+header li a {
+  margin: 0 10px;
+}
+
+.hero {
+  background-image: url('https://images.unsplash.com/photo-1552346154-21d32810aba3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
+  height: 600px;
+  background-size:cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-form {
+  background-color: #F0E565;
+  border: 3px solid #68605D;
+  padding: 20px;
+  width:400px;
+  position:absolute;
+  right:30px;
+  bottom:100px;
+}
+
+
+.hero h3 {
+  font-size: 24px;
+}
+
+.hero > p {
+  margin: 5px 0px 15px 0;
+  font-size: medium;
+  color:#0AA7D2;
+  padding: 10px 5px;
+  text-shadow: -1px -1px 0 black,-1px -1px 0 black,-1px -1px 0 black;
+}
+
+
+.form-text-input {
+  display: block;
+  border: 2px solid #0AA7D2;
+  border-radius: 5px;
+  padding: 5px 12px;
+  font-size:medium;
+  width:80%;
+  margin-bottom: 10px;
+}
+
+.hero-form label{
+  margin: 5px 5px;
+}
+
+#formButton {
+  padding: 10px 25px;
+  font-size: large;
+  background-color: #0AA7D2;
+  color:#F0E565;
+}
+
+#about-us {
+ text-align: center;
+ background-color:#F0E565;
+}
+
+#about-us p {
+  line-height: 1.7;
+  color:#0AA7D2;
+  width: 100%;
+  font-size: 20px;
+  margin:0px auto;
+}
