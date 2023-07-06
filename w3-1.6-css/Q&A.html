@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=2.0">
+  <title>Q&A - Friday Week 2</title>
+
+</head>
+<body>
+   <a href="#">Don't style me</a>
+  <!-- ul>(li>a{Link to Website $})*5 -->
+  <ul>
+    <li><a href="#">Link to Website 1</a></li>
+    <li><a href="#">Link to Website 2</a></li>
+    <li><a href="#">Link to Website 3</a></li>
+    <li><a href="#">Link to Website 4</a></li>
+    <li><a href="#">Link to Website 5</a></li>
+  </ul>
+  <div class="container">
+    <div class="nav">nav</div>
+    <div class="data-aside">
+      <div class="data">data</div>
+      <div class="aside">aside</div>
+      <div class="data">data</div>
+      <div class="aside">aside</div>
+    </div>
+    <div class="section">section</div>
+    <div class="footer">footer</div>
+  </div>
+</body>
+</html>
+
+<style>
+
+.nav {
+  background-color: blue;
+  height: 100px;
+}
+
+.data-aside {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  height: 400px;
+  grid-gap: 30px;
+}
+
+.data {
+  background-color: green;
+}
+
+
+.aside {
+  background-color: yellow;
+}
+
+.section {
+  background-color: purple;
+  height:200px;
+}
+
+.footer {
+  background-color: orange;
+  height: 50px;
+}
+
+@media screen and (max-width: 600px) {
+  .data-aside {
+  grid-template-columns: 1fr;
+}
+}
+</style>
