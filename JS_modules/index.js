@@ -1,29 +1,11 @@
-import inquirer from "inquirer";
+let myButton = document.querySelector("#themeButton")
 
-inquirer.png.prompt([
-{
-  type:'list',
-  message: "What is your username ?",
-  choices: ["ewd", "qasim", "red"],
-  name:'userName'
-},
-{
-  type:'password',
-  message: "What is your password ?",
-  name:'password'
-},
-{
-  type:'password',
-  message: "Confirm your password ?",
-  name:'confirmPassword'
+myButton.addEventListener("click", setAndChangeTheme)
+
+
+function setAndChangeTheme(){
+ document.body.style.backgroundColor = "#1D2D44"
+ localStorage.setItem('list', JSON.stringify({item1:"pen", item2:["appale", 'blue', 'banana']}));
 }
-]).then((kyle)=>{
-   if (kyle.password == kyle.confirmPassword) {
-     console.log("GOOD!")
-   } else
-   {
-     console.log("Bad")
-   }
-})
 
-
+console.log(JSON.parse(localStorage.getItem('list')))
