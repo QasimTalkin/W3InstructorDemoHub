@@ -1,5 +1,6 @@
 import './App.css';
 import Nav from './components/Nav'
+import MyImage from './../assets/img/cats.png'
 function App() {
   let name = "Qasim";
   let numer = 9;
@@ -7,7 +8,8 @@ function App() {
   let person = {name:"Qasim", age:12}
   return (
     <div className="App">
-      <Nav/>
+      <img src={MyImage} alt="cats" />
+      <Nav />
     </div>
   );
 }

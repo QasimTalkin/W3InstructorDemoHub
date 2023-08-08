@@ -1,5 +1,5 @@
+import styles from './../styles/myStyle.module.css'
 function Nav(){
-
   let navbar = [
     {
       name:"About US",
@@ -19,8 +19,8 @@ function Nav(){
     { navbar.map((item)=>{
       return (
       <>
-       <h2 style={{backgroundColor:"red", border:"2px solid green"}}>{item.name}</h2>
-       <p>{item.value}</p>
+       <h2 className={styles.h2Style}>{item.name}</h2>
+       <p className={styles.paragraph} >{item.value}</p>
       </>
       )
     }) }
