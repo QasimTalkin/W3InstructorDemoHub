@@ -4,7 +4,7 @@ function Blog({heading, title, post, time=60, children}){
     <>
     <div className="card">
     <div className="card-body">
-      <h5 className="card-title">{ title }</h5>
+      <h3 className="card-title">{ title }</h3>
       <p className="card-text">{ post }</p>
       <p className="card-text"><small className="text-muted">Last updated {time} mins ago</small></p>
     </div>
