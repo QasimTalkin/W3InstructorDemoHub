@@ -1,9 +1,12 @@
-import { useState } from "react"
+import { useState, useReducer} from "react"
 import { addNewBlog } from "../utils/helpfulFunctions"
+import bookReducer from "../helpers/blogsReducer";
+
+
+export default function InputBlogInfo({dispatch}) {
 
 
 
-export default function InputBlogInfo({blogs, setBlogs}) {
   let [title, setTitle] = useState('');
   let [content, setContent] = useState('')
 
@@ -15,11 +18,6 @@ export default function InputBlogInfo({blogs, setBlogs}) {
     setContent(e.target.value)
   }
 
-  function addNewBlog(e){
-    setBlogs([{title, content}, ...blogs])
-    setTitle('');
-    setContent('')
-  }
   return (
     <>
       <div className="container">
@@ -31,7 +29,7 @@ export default function InputBlogInfo({blogs, setBlogs}) {
          <div className="display-6">Content</div>
          <div className="row g-3">
          <textarea value={content} onChange={updateContent} className="form-control" id="textAreaExample1" rows="4"></textarea>
-          <button  onClick={addNewBlog} className="btn btn-success" disabled={!title || !content}> Publish New Content</button>
+          <button  onClick={()=>dispatch({type:"add", newBlog:{title, content}})} className="btn btn-success" disabled={!title || !content}> Publish New Content</button>
          </div>
         </div>
       </div>
