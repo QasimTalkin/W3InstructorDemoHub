@@ -13,7 +13,7 @@ function App() {
       <Nav />
       <Banner title="Welcome" subTitle="This is a subtitle for home" />
       <InputBlogInfo blogs={blogs} setBlogs={setBlogs}/>
-      <Blogs blogs={blogs} />
+      <Blogs blogs={blogs} setBlogs={setBlogs}/>
     </div>
   );
 }
