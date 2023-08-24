@@ -1,5 +1,8 @@
 import styles from './../styles/myStyle.module.css'
+import { useBlogContext } from './Context/BlogsContext';
+
 function Nav(){
+  const {dataAtAPointTime}= useBlogContext();
   let navbar = [
     {
       name:"About US",
@@ -17,7 +20,7 @@ function Nav(){
   return (
     <>
 <nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <a className="navbar-brand" href="#">Navbar</a>
+  <a className="navbar-brand" href="#">Navbar ({dataAtAPointTime.length}) Blogs</a>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>

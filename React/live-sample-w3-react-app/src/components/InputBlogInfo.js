@@ -3,7 +3,7 @@ import { addNewBlog } from "../utils/helpfulFunctions"
 
 
 
-export default function InputBlogInfo({blogs, setBlogs}) {
+export default function InputBlogInfo({actionHandler}) {
   let [title, setTitle] = useState('');
   let [content, setContent] = useState('')
 
@@ -16,9 +16,9 @@ export default function InputBlogInfo({blogs, setBlogs}) {
   }
 
   function addNewBlog(e){
-    setBlogs([{title, content}, ...blogs])
+    actionHandler({type:'add', data:{title, content}})
     setTitle('');
-    setContent('')
+    setContent('');
   }
   return (
     <>
