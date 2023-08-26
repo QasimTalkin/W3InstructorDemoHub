@@ -3,6 +3,9 @@ import Nav from './components/Nav';
 import Blogs from './components/Blogs';
 import Banner from './components/Banner';
 import {BlogContextProvider} from './components/Context/BlogsContext'
+import Pokemon from './components/Pokemon';
+
+
 
 function App() {
 
