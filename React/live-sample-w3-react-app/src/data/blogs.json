@@ -1,5 +1,6 @@
 [
   {
+    "time": 7,
     "title": "New Blog on Gym",
     "content": " dasda react is Lorem ipsum dolor sit amet Provident amet in corrupti eos quod reprehenderit, est dolores cumque officiis quisquam inventore reiciendis labore tempore rem, debitis culpa dolor doloremque sequi eius. Doloremque quis repellendus nesciunt? This is a wider card with supporting text below as a natural lead-in to additional  This s a little bit longer."
   }, {
@@ -19,7 +20,7 @@
     "title": "Kyles guide on best practices",
     "content": " saddasdasda react is Lorem ipsum dolor sit amet Provident amet in corrupti eos quod reprehenderit, est dolores cumque officiis quisquam inventore reiciendis labore tempore rem, debitis culpa dolor doloremque sequi eius. Doloremque quis repellendus nesciunt? This is a wider card with supporting text below as a natural lead-in to additional  This s a little bit longer."
   }, {
-
+    "time": 20,
     "title": "Why Isaac is not talking to us",
     "content": "Isanc is Lorem ipsum dolor sit amet Provident amet in corrupti eos quod reprehenderit, est dolores cumque officiis quisquam inventore reiciendis labore tempore rem, debitis culpa dolor doloremque sequi eius. Doloremque quis repellendus nesciunt? This is a wider card with supporting text below as a natural lead-in to additional  This s a little bit longer."
   }
