@@ -40,3 +40,12 @@ body {
     transform: rotate(360deg);
   }
 }
+
+nav a {
+  text-decoration: none;
+  padding: 4px;
+  border-radius: 4px;
+}
+nav a.active {
+background-color: #61dafb;
+}
