@@ -1,20 +1,31 @@
 import './App.css';
+import AboutUS from './pages/AboutUs';
+import ContactUs from './pages/ContactUs';
+import Home from './pages/Home';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import NotFound from './pages/NotFound';
 import Nav from './components/Nav';
-import Blogs from './components/Blogs';
-import Banner from './components/Banner';
+// import Nav from './components/Nav';
+// import Blogs from './components/Blogs';
+// import Banner from './components/Banner';
 import {BlogContextProvider} from './components/Context/BlogsContext'
-import Pokemon from './components/Pokemon';
-
-
+// import Pokemon from './components/Pokemon';
 
 function App() {
-
   return (
     <div className="App">
-    <BlogContextProvider>
-      <Nav />
-      <Banner title="Welcome" subTitle="This is a subtitle for home" />
-      <Blogs/>
+       <BlogContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<Nav/>}>
+              <Route index element={<Home/>}/>
+              <Route path='home' element={<Home/>}/>
+              <Route path='about' element={<AboutUS/>}/>
+              <Route path='contact' element={<ContactUs/>}/>
+            </Route>
+            <Route path='*' element={<NotFound/>}/>
+          </Routes>
+        </BrowserRouter>
     </BlogContextProvider>
     </div>
   );
