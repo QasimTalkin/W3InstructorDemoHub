@@ -1,6 +1,6 @@
 import styles from './../styles/myStyle.module.css'
 import { useBlogContext } from './Context/BlogsContext';
-import { Link, NavLink, Outlet } from 'react-router-dom'
+import { NavLink, Outlet } from 'react-router-dom'
 function Nav(){
   return (
     <>
@@ -13,13 +13,16 @@ function Nav(){
   <div className="collapse navbar-collapse" id="navbarNav">
     <ul className="navbar-nav">
       <li className="nav-item active">
-        <Link className="nav-link" to="/home">Home <span className="sr-only">(current)</span></Link>
+        <NavLink className="nav-link" to="/home">Home <span className="sr-only">(current)</span></NavLink>
       </li>
       <li className="nav-item">
         <NavLink className="nav-link" to="/about">About</NavLink>
       </li>
       <li className="nav-item">
         <NavLink className="nav-link" to="/contact">Contact</NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink className="nav-link" to="/blogs">Blogs</NavLink>
       </li>
       <li className="nav-item">
         <a className="nav-link disabled" href="#">Disabled</a>

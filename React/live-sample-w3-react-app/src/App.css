@@ -40,3 +40,13 @@ body {
     transform: rotate(360deg);
   }
 }
+
+
+nav a {
+  padding: 45px;
+  border-radius: 5px;
+}
+
+nav a.active {
+  background-color: aqua;
+}
