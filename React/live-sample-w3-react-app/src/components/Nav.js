@@ -25,6 +25,9 @@ function Nav(){
         <NavLink className="nav-link" to="/blogs">Blogs</NavLink>
       </li>
       <li className="nav-item">
+        <NavLink className="nav-link" to="/kyle">Kyles Lab</NavLink>
+      </li>
+      <li className="nav-item">
         <a className="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
