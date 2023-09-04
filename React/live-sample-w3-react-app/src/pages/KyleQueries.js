@@ -36,7 +36,7 @@ const KylesQueries = () => {
         <h1>{ count }</h1>
         <input type="button" value="Plus" onClick={handlePlus}/>
         <input type="submit" value="submit"/>
-        <input type="text" name="city" value={}/>
+        <input type="text" name="city"/>
      </form>
   </> );
 }
