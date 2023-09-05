@@ -9,6 +9,8 @@ const blogReducer = (dataAtAPointTime, action) => {
       return dataAtAPointTime.filter((article)=>article.time<=30)
     case 'unfilter':
       return blogs
+    case 'set':
+      dataAtAPointTime = action.value
     default:
       return dataAtAPointTime
   }

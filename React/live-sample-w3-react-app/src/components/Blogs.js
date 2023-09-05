@@ -1,9 +1,11 @@
 import Blog from './Blog'
 import InputBlogInfo from './InputBlogInfo';
 import { useBlogContext } from './Context/BlogsContext';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { Outlet, useParams, useNavigate} from 'react-router-dom';
+import axios from 'axios'
+
 function Blogs() {
   const { dataAtAPointTime, actionHandler } = useBlogContext();
   const { id } = useParams();
@@ -21,6 +23,17 @@ function Blogs() {
 
 
 
+  const myBlogsApi = axios.create({baseURL:'https://64f672ff9d77540849524fa1.mockapi.io/api/blogs'})
+  useEffect(()=>{
+    //go get all blogs
+    myBlogsApi.get().then(res=>{
+      let newBlogs = res.data;
+      actionHandler({type:'set', value:newBlogs})
+    })
+    // and set them as current blogs
+    //actionHanfle set blogs
+  }, [])
+
   const [articleToggled, setArticleToggle] = useState(false)
   const [toggle, setToggle] = useState('Show')
 
@@ -32,11 +45,11 @@ function Blogs() {
   return (
     <>
       {/* <InputBlogInfo actionHandler={actionHandler} /> */}
-{  !id ?
+{  true ?
 <>
       <button className='btn btn-primary my-5' onClick={handleFilterArticle}> {toggle} Articles </button>
       {
-      (articleToggled) &&
+      true &&
         <>
           <h2>All articles</h2>
           <div className='container'>
