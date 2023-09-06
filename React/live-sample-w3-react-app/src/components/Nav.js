@@ -1,12 +1,10 @@
-import styles from './../styles/myStyle.module.css'
-import { useBlogContext } from './Context/BlogsContext';
 import { NavLink, Outlet } from 'react-router-dom'
 function Nav(){
   return (
     <>
 
 <nav className="navbar navbar-expand-lg navbar-light bg-light">
-  <a className="navbar-brand" href="#">Q-Blogs</a>
+<NavLink className="nav-link" to="/">Q-Blogs</NavLink>
   <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span className="navbar-toggler-icon"></span>
   </button>
@@ -28,7 +26,7 @@ function Nav(){
         <NavLink className="nav-link" to="/kyle">Kyles Lab</NavLink>
       </li>
       <li className="nav-item">
-        <a className="nav-link disabled" href="#">Disabled</a>
+        <NavLink className="nav-link disabled" to="/">Disabled</NavLink>
       </li>
     </ul>
   </div>

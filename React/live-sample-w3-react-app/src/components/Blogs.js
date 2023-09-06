@@ -1,9 +1,7 @@
 import Blog from './Blog'
-import InputBlogInfo from './InputBlogInfo';
 import { useBlogContext } from './Context/BlogsContext';
 import { useEffect, useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import { Outlet, useParams, useNavigate} from 'react-router-dom';
+import { useParams, useNavigate} from 'react-router-dom';
 import axios from 'axios'
 
 function Blogs() {
@@ -12,7 +10,7 @@ function Blogs() {
   let chosenOne = [];
   let noChosenOne = false;
   if (id){
-    [chosenOne] = dataAtAPointTime.filter((blog)=>blog.id == id)
+    [chosenOne] = dataAtAPointTime.filter((blog)=>blog.id === id)
     if (!chosenOne){
       noChosenOne = true;
     }
@@ -32,7 +30,7 @@ function Blogs() {
     })
     // and set them as current blogs
     //actionHanfle set blogs
-  }, [])
+  }, [actionHandler, myBlogsApi])
 
   const [articleToggled, setArticleToggle] = useState(false)
   const [toggle, setToggle] = useState('Show')

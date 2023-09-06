@@ -4,13 +4,13 @@ const blogReducer = (dataAtAPointTime, action) => {
     case 'add':
       return [action.data, ...dataAtAPointTime]
     case 'delete':
-      return dataAtAPointTime.filter((item)=>item.title != action.title)
+      return dataAtAPointTime.filter((item)=>item.title !== action.title)
     case 'filter':
       return dataAtAPointTime.filter((article)=>article.time<=30)
     case 'unfilter':
       return blogs
     case 'set':
-      dataAtAPointTime = action.value
+      return dataAtAPointTime = action.value;
     default:
       return dataAtAPointTime
   }

@@ -1,11 +1,10 @@
-import { Animate } from "react-simple-animate";
 import { motion } from "framer-motion"
 
 
 function Blog({ heading, title, post, time = 60, children }) {
   return (
     <>
-      <div className="col-sm-12 col-md-6 col-lg-4"
+      <motion.div className="col-sm-12 col-md-6 col-lg-4"
       initial={{ y: -50, scale: 2}}
       animate={{ y: 0, scale: 1}}
       transition={{ duration: 0.5 }}>
@@ -17,7 +16,7 @@ function Blog({ heading, title, post, time = 60, children }) {
           </div>
           {children}
         </div>
-      </div>
+      </motion.div>
     </>
   )
 }
