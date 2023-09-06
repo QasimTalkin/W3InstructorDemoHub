@@ -1,4 +1,3 @@
-import MyImage from './../../assets/img/cats.png'
 import { Animate } from "react-simple-animate";
 import { motion } from "framer-motion"
 
