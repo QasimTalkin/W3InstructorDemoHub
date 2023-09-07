@@ -1,6 +1,9 @@
 {
   "dependencies": {
     "bootstrap": "^5.3.1",
+    "joi-browser": "^13.4.0",
+    "react-loader-spinner": "^5.4.5",
+    "reactjs-alert": "^2.2.0",
     "uuid": "^9.0.0"
   }
 }

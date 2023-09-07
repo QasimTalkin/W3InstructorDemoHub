@@ -3,10 +3,13 @@ import { useBlogContext } from './Context/BlogsContext';
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate} from 'react-router-dom';
 import axios from 'axios'
+import { FidgetSpinner } from 'react-loader-spinner'
 
 function Blogs() {
   const { dataAtAPointTime, actionHandler } = useBlogContext();
   const { id } = useParams();
+
+  const [isLoading, setIsLoading] = useState(true);
   let chosenOne = [];
   let noChosenOne = false;
   if (id){
@@ -22,15 +25,16 @@ function Blogs() {
 
 
   const myBlogsApi = axios.create({baseURL:'https://64f672ff9d77540849524fa1.mockapi.io/api/blogs'})
+
+  async function getBlogs () {
+    let response = await myBlogsApi.get();
+    actionHandler({type:'set', value:response.data})
+    setIsLoading(false);
+  }
+
   useEffect(()=>{
-    //go get all blogs
-    myBlogsApi.get().then(res=>{
-      let newBlogs = res.data;
-      actionHandler({type:'set', value:newBlogs})
-    })
-    // and set them as current blogs
-    //actionHanfle set blogs
-  }, [actionHandler, myBlogsApi])
+  getBlogs()
+  }, [])
 
   const [articleToggled, setArticleToggle] = useState(false)
   const [toggle, setToggle] = useState('Show')
@@ -43,8 +47,25 @@ function Blogs() {
   return (
     <>
       {/* <InputBlogInfo actionHandler={actionHandler} /> */}
-{  true ?
+
+
+{ isLoading ?
 <>
+      <FidgetSpinner
+      visible={true}
+      height="180"
+      width="180"
+      ariaLabel="dna-loading"
+      wrapperStyle={{}}
+      wrapperClass="dna-wrapper"
+      ballColors={['#ff0000', '#00ff00', '#0000ff']}
+      backgroundColor="#F4442E"
+    />
+
+    <h1> Page loading...</h1>
+</>
+
+:<>
       <button className='btn btn-primary my-5' onClick={handleFilterArticle}> {toggle} Articles </button>
       {
       true &&
@@ -62,16 +83,6 @@ function Blogs() {
             </div></div>
         </>
       }
-</>
-:
- <>
- { noChosenOne ?   <input type="button" onClick={()=>navigate('/home')} value="TAKE ME HOME"/> :
- <div className='container justify-content-center align-items-center'>
-<Blog title={chosenOne.title} post={chosenOne.content} key={chosenOne.title} time={chosenOne.time}>
-  <button className="btn btn-danger" onClick={() => actionHandler({ type: "delete", title: chosenOne.title })} id={chosenOne.title}>Delete</button>
-</Blog>
-</div>}
-
 </>
 }
 
