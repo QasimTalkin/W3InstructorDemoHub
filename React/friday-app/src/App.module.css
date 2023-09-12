@@ -1,0 +1,17 @@
+.myButton {
+  padding: 5px;
+  font-size: large;
+  background-color: yellowgreen;
+  border: solid red 2px;
+  cursor: pointer;
+  margin: 5px auto;
+}
+
+body{
+  background-color: bisque;
+  font-size: 100px;
+}
+
+div {
+  background-color: violet;
+}
