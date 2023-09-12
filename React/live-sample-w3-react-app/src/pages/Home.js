@@ -1,5 +1,7 @@
 
 const Home = () => {
+  let isVerified = (process.env.SECRET_CLOUD_STORAGE_KEY==='Qasim') ? true : false
+  console.log(process.env)
   return ( <>
       <h1>Home</h1>
       <div>
@@ -9,6 +11,13 @@ const Home = () => {
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto voluptatem explicabo neque!
         </p>
       </div>
+{isVerified  &&    <>
+      <h2>Check user is logged in show user data</h2>
+      <div>
+        pdf and images from cloud storage
+      </div>
+      </>}
+
   </> );
 }
 

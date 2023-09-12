@@ -23,8 +23,7 @@ function Blogs() {
   let navigate = useNavigate();
 
 
-
-  const myBlogsApi = axios.create({baseURL:'https://64f672ff9d77540849524fa1.mockapi.io/api/blogs'})
+  const myBlogsApi = axios.create({baseURL:`https://${process.env.REACT_APP_BLOG_SECRET_KEY}.mockapi.io/api/blogs`})
 
   async function getBlogs () {
     let response = await myBlogsApi.get();
