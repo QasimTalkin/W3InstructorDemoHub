@@ -1,14 +1,12 @@
-const mySql = require('mysql2')
+const { Sequelize, DataTypes } = require('sequelize');
 
-const dbConnection = mySql.createConnection(
-  {
-    host:'localhost',
-    user:'abc',
-    password:'1234',
-    database:'elction'
-  },
-  console.log('Connected')
-);
+const sequelize = new Sequelize('mini_reddit', 'abc', '1234', {
+  host: '127.0.0.1',
+  dialect: 'mysql',
+  port:3306
+});
 
-
-module.exports = dbConnection;
+module.exports = {
+  sequelize,
+  DataTypes
+}

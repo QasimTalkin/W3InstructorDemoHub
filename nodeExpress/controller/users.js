@@ -1,28 +1,28 @@
+const userModel = require("../Model/userModel")
 
-
-const users = [
-  {
-    username:"qasim",
-    password:"weak"
-  },
-  {
-    username:"tom",
-    password:"strong"
-  }
-]
-
-function showUsers(request, response) {
+async function showUsers(request, response) {
   console.log("GET USERS");
-  response.json(users)
-  response.end();
-}
+  // let user = userModel.findAll().then((result)=> {
+  //  res.send(result);
+  //  res.end();
+  //})
+  let users = await userModel.findAll();
+    response.json(users)
+    response.end();
+  }
 
 function creatUsers(request, response) {
-  console.log("SET USERS");
-  users.push(request.body)
-  console.log(request.method)
-  response.json(users)
-  response.end();
+  userModel.create({
+    userName: request.body.userName,
+    email: request.body.email,
+    password: request.body.password
+  })
+  .then((result)=>response.send(result))
+  .catch((err)=>{
+    console.log(err);
+    response.status(500).json(err)
+  }
+  )
 }
 
 function loginUser(req, res) {
@@ -39,23 +39,24 @@ function loginUser(req, res) {
 }
 
 function updateUsers(request, response) {
-  console.log("Update USERS");
-  let userId = request.params.id;
-  const userFound = users.some((item)=>item.username == userId);
-  if(userFound){
-    response.json(request.body)
-  } else {
-    response.send("USER NOT FOUND")
-  }
-
-  response.end();
+  userModel.update(request.body, {where:{id:request.params.id}})
+  .then((result)=>response.send(result))
+  .catch((err)=>{
+    console.log(err);
+    response.status(500).json(err)
+  })
 }
 
-function deleteUsers(request, response) {
-  console.log('DELETE Users')
-  console.log(request.method)
-  response.json(request.body)
-  response.end();
+function deleteUser(request, response) {
+  userModel.destroy({
+    where:{
+      id:request.params.id
+    }
+  }).then((result)=>response.send(result))
+  .catch((err)=>{
+    console.log(err);
+    response.status(500).json(err)
+  })
 }
 
 
@@ -63,6 +64,6 @@ module.exports = {
   showUsers,
   creatUsers,
   updateUsers,
-  deleteUsers,
+  deleteUser,
   loginUser
 }

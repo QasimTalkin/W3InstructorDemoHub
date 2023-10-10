@@ -1,7 +1,7 @@
 const express = require('express')
 const userRouter = express.Router();
 
-const {showUsers, creatUsers, updateUsers, deleteUsers, loginUser} = require('../controller/users')
+const {showUsers, creatUsers, updateUsers, deleteUser, loginUser} = require('../controller/users')
 
 userRouter.get('/', showUsers )
 
@@ -9,7 +9,7 @@ userRouter.post('/', creatUsers)
 
 userRouter.put('/:id', updateUsers)
 
-userRouter.delete('/', deleteUsers)
+userRouter.delete('/:id', deleteUser)
 
 function verifyCorrectLocation(req, res, next){
   if (req.path == '/login'){
