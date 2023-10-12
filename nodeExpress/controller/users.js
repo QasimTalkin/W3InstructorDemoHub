@@ -2,14 +2,58 @@ const userModel = require("../Model/userModel")
 
 async function showUsers(request, response) {
   console.log("GET USERS");
-  // let user = userModel.findAll().then((result)=> {
-  //  res.send(result);
-  //  res.end();
-  //})
-  let users = await userModel.findAll();
+
+  let users = await userModel.findAll({
+    attributes:{
+      exclude:['password', 'updatedAt']
+    }
+  });
     response.json(users)
     response.end();
   }
+
+function showUser(request, response){
+  userModel.findOne({
+    attributes:{
+      exclude:['password']
+    }
+  },{
+    where:{
+      id:request.params.id
+    }
+  })
+  .then((result)=>{
+    response.json(result)
+    response.end();
+  })
+  .catch((err)=>{
+    console.log(err);
+    response.status(500).json(err)
+  })
+}
+
+
+function loginUser(req, res) {
+  userModel.findOne({
+    where:{
+      email:req.body.email
+    }
+  }).then((result)=>{
+
+    if(!result){
+      res.status(400).json({message:"Incorrect Email"})
+      return
+    }
+
+    if (req.body.password == result.password){
+      res.json({message:"WELCOME YOUVE LOGGED IN", userData:result})
+      return;
+    }
+
+    res.status(400).json({message:"Incorrect Pass"})
+  })
+}
+
 
 function creatUsers(request, response) {
   userModel.create({
@@ -23,19 +67,6 @@ function creatUsers(request, response) {
     response.status(500).json(err)
   }
   )
-}
-
-function loginUser(req, res) {
-  console.log(req.path)
-  const {username, password} = req.body;
-  const canLongIn = users.some((item)=>{
-    return (item.username == username && item.password == password)
-  })
-  if (canLongIn){
-    res.send("YAYA youve loogged in")
-  } else {
-    res.send("NOT ALLOWED")
-  }
 }
 
 function updateUsers(request, response) {
@@ -65,5 +96,6 @@ module.exports = {
   creatUsers,
   updateUsers,
   deleteUser,
-  loginUser
+  loginUser,
+  showUser
 }
