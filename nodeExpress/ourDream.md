@@ -45,3 +45,8 @@
 
 
 ## (friday) Hash passwords
+
+- password that comes in must be haashed
+- npm - bcrypt
+- then when user are cratead -> add hashed password
+- when user login -> get passowred and hassh it and comapre the hash
