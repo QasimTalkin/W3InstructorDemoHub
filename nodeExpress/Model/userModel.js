@@ -1,7 +1,7 @@
 const { sequelize, DataTypes} = require("../db/connection");
-
+const bcrypt = require("bcrypt")
 const User = sequelize.define(
-  'User',
+  'Users',
 {
   id: {
     type: DataTypes.INTEGER,
@@ -9,7 +9,7 @@ const User = sequelize.define(
     primaryKey: true,
     autoIncrement: true,
   },
-  userName:{
+  user_name:{
     type:DataTypes.STRING,
     allowNull:false,
     unique:true,
@@ -31,10 +31,17 @@ const User = sequelize.define(
   }
 },
 {
+  hooks: {
+   async beforeCreate(userData){
+    userData.password = await bcrypt.hash(userData.password, 3);
+    return userData;
+   }
+  }
+},
+{
   sequelize,
   timestamps:true,
-  underscored:true
 });
 
-
+User.sync({ force: false })
 module.exports = User

@@ -1,5 +1,5 @@
 const userModel = require("../Model/userModel")
-
+const bcrypt = require("bcrypt")
 async function showUsers(request, response) {
   console.log("GET USERS");
 
@@ -36,7 +36,7 @@ function showUser(request, response){
 function loginUser(req, res) {
   userModel.findOne({
     where:{
-      email:req.body.email
+      user_name:req.body.user_name
     }
   }).then((result)=>{
 
@@ -45,7 +45,7 @@ function loginUser(req, res) {
       return
     }
 
-    if (req.body.password == result.password){
+    if (bcrypt.compare(req.body.password, result.password)){
       res.json({message:"WELCOME YOUVE LOGGED IN", userData:result})
       return;
     }
@@ -57,7 +57,7 @@ function loginUser(req, res) {
 
 function creatUsers(request, response) {
   userModel.create({
-    userName: request.body.userName,
+    user_name: request.body.user_name,
     email: request.body.email,
     password: request.body.password
   })

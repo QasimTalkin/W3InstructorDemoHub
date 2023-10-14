@@ -33,7 +33,7 @@ const Post = sequelize.define('Post', {
   }
 })
 
-sequelize.sync()
+Post.sync({ force: false })
 // creare a post and console log it
 const johnsPost = Post.create("Title", "https://http.cat/400", "This is body", 4)
 
