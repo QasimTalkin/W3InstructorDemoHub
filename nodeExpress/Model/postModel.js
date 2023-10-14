@@ -1,7 +1,8 @@
 
 const { sequelize, DataTypes } = require("../db/connection");
+const userModel = require('./userModel')
 
-const Post = sequelize.define('Post', {
+const Post = sequelize.define('Posts', {
   id: {
     type: DataTypes.INTEGER,
     allowNull:false,
@@ -33,8 +34,13 @@ const Post = sequelize.define('Post', {
   }
 })
 
-Post.sync({ force: false })
-// creare a post and console log it
-const johnsPost = Post.create("Title", "https://http.cat/400", "This is body", 4)
+userModel.hasMany(Post, {
+  foreignKey:"user_id"
+})
 
+Post.belongsTo(userModel, {
+  foreignKey:"user_id"
+})
+
+sequelize.sync();
 module.exports = Post;

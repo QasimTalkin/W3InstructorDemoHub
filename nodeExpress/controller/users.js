@@ -1,4 +1,5 @@
 const userModel = require("../Model/userModel")
+const postModel = require("../Model/postModel")
 const bcrypt = require("bcrypt")
 async function showUsers(request, response) {
   console.log("GET USERS");
@@ -6,7 +7,11 @@ async function showUsers(request, response) {
   let users = await userModel.findAll({
     attributes:{
       exclude:['password', 'updatedAt']
+    },
+    include:{
+      model:postModel
     }
+
   });
     response.json(users)
     response.end();

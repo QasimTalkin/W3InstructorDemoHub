@@ -1,0 +1,9 @@
+<script>
+
+  fetch("http://localhost:1010/users", {mode: 'cors'})
+  .then(res=>res.json()
+  .then(data=>{
+   document.getElementsByName('body').innerHTML=data;}
+  ));
+
+</script>
