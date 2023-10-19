@@ -1,9 +1,20 @@
 const userModel = require("../Model/userModel")
 const postModel = require("../Model/postModel")
 const bcrypt = require("bcrypt")
-async function showUsers(request, response) {
-  console.log("GET USERS");
+const jwt = require('jsonwebtoken');
 
+const superSecretKey = "aaaaasdasdasdasdasdasdedasdasdadewadasdawdasdadsdasdazxdasdasdasdas11"
+
+async function showUsers(request, response) {
+
+  let token = request.query.token;
+  jwt.verify(token, superSecretKey, (err, result)=>{
+   if (err) {
+    response.redirect('http://localhost:3000/404');
+    response.end()
+    return
+   }
+  })
   let users = await userModel.findAll({
     attributes:{
       exclude:['password', 'updatedAt']
@@ -66,7 +77,14 @@ function creatUsers(request, response) {
     email: request.body.email,
     password: request.body.password
   })
-  .then((result)=>response.send(result))
+  .then((result)=>{
+
+  let token =  jwt.sign(result.user_name, superSecretKey);
+    response.json({
+      user_name:result.user_name,
+      token
+    })
+  })
   .catch((err)=>{
     console.log(err);
     response.status(500).json(err)
